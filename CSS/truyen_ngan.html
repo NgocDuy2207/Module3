@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trang đọc truyện ngắn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .story {
+            flex-basis: 48%;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #888;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .story:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 20px #888;
+        }
+
+        .story img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .active {
+            background-color: #f2f2f2;
+            border-left: 5px solid #333;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    Trang đọc truyện ngắn
+</header>
+<div class="container">
+    <div class="story active">
+        <img src="https://i.pinimg.com/236x/f2/84/72/f28472b51a2d70c6ca20893a3c8cebf3.jpg" alt="Ảnh bìa truyện">
+        <h5>Mục lục 1</h5>
+        <p>Nội dung truyện ngắn anime</p>
+    </div>
+    <div class="story">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyHG-AAIWQoG0ktjExTgvQpjQWSag8dWuRCv3EFpoXLg&s" alt="Ảnh bìa truyện">
+        <h5>Mục lục 2</h5>
+        <p>Nội dung truyện doremon</p>
+    </div>
+    <div class="story">
+        <img src="https://static.8cache.com/cover/o/eJzLyTDR180LKc8Kjw9w9kly1Q9z8nUxyTQ3Ms721HeEgmxvC_3MsEKLgJLCxIqIcv1yI0NT3QxjIyMAUTMSjA==/dau-la-dai-luc-230420.jpg" alt="Ảnh bìa truyện">
+        <h5>Mục lục 3</h5>
+        <p>Nội dung truyện đấu la đại lục</p>
+    </div>
+    <div class="story">
+        <img src="https://thegioidienanh.vn/stores/news_dataimages/huonggiang/052018/05/10/3827_ThYn_YYng_YYt_ViYt_2.jpg" alt="Ảnh bìa truyện">
+        <h5>Mục lục 4</h5>
+        <p>Nội dung truyện thiếu nhi việt nam</p>
+    </div>
+</div>
+</body>
+
+ <script>
+    let stories = document.querySelectorAll(".story");
+
+    stories.forEach(story => {
+        story.addEventListener("click", () => {
+            stories.forEach(s => {
+                s.classList.remove("active");
+            });
+            story.classList.add("active");
+        });
+    });
+</script>;
