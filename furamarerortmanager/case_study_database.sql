@@ -160,7 +160,7 @@ select ma_hop_dong,
         left join dich_vu_di_kem dvdk using(ma_dich_vu_di_kem)
         group by ma_dich_vu_di_kem
         having su_dung_1_lan = 1;
--- cau 15: 
+-- cau 15:	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi  mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 select ma_nhan_vien,
 		ho_ten,
         td.ten_trinh_do,
@@ -186,11 +186,52 @@ from nhan_vien
         and year(hd.ngay_lam_hop_dong) between 2019 and 2021
     );
     -- cau 17: 
+    -- cau 18:	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+	delete from khach_hang kh where exists(
+    select kh.ma_khach_hang, kh.ho_ten
+    from khach_hang kh
+    inner join hop_dong hd on hd.ma_khach_hang = kh.ma_khach_hang
+    where year(ngay_lam_hop_dong) < 2021);
     
+    -- cau 19: Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi
+    -- cau 20:	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.  
     
+	select ma_nhan_vien as id,
+		ho_ten,
+        email,
+        so_dien_thoai,
+        ngay_sinh,
+        dia_chi
+	from nhan_vien
+    union all
+    select ma_khach_hang as id,
+			ho_ten,
+            email,
+            so_dien_thoai,
+            ngay_sinh,
+            dia_chi
+	from khach_hang;
+
+-- cau 21: Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
+create view v_nhan_vien
+as select * from nhan_vien nv
+join hop_dong using(ma_nhan_vien)
+where dia_chi like 'Đà Nẵng'
+and year(ngay_lam_hop_dong) = 2021;
 
 
 
+create view v_nhan_vien_2 as
+select
+    ma_nhan_vien,
+    ho_ten,
+    dia_chi,
+    so_dien_thoai
+from
+    nhan_vien
+    JOIN hop_dong USING(ma_nhan_vien)
+WHERE
+    dia_chi like '%Đà Nẵng%';
 
 
 
@@ -207,29 +248,6 @@ from nhan_vien
     GROUP by
         ma_dich_vu_di_kem;
 
--- cau 6;
-SELECT
-    ma_dich_vu,
-    ten_dich_vu,
-    dien_tich,
-    chi_phi_thue,
-    ten_loai_dich_vu
-from
-    dich_vu
-    JOIN loai_dich_vu USING (ma_loai_dich_vu)
-WHERE
-    ma_dich_vu not in (
-        SELECT
-            ma_dich_vu
-        from
-            dich_vu
-            join hop_dong using (ma_dich_vu)
-        WHERE
-            ngay_lam_hop_dong BETWEEN '2021-01-01'
-            and '2021-03-31'
-    );
-
-    
 
  
 
