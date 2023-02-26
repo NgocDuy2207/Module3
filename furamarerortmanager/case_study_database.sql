@@ -237,16 +237,6 @@ WHERE
 
 
 
--- With count_used AS (
-    SELECT
-        ma_dich_vu_di_kem,
-        ten_dich_vu_di_kem,
-        sum(so_luong) tong_so_luong_dvdk
-    FROM
-        dich_vu_di_kem
-        JOIN hop_dong_chi_tiet USING(ma_dich_vu_di_kem)
-    GROUP by
-        ma_dich_vu_di_kem;
 
 
  
