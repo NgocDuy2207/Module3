@@ -1,0 +1,26 @@
+
+body {
+    font-family: Verdana;
+    background-color: lightblue ;
+}
+header, footer {
+    padding: 10px;
+    color: white;
+    background-color: #888888;
+}
+section {
+    margin: 5px;
+    padding: 10px;
+    background-color: lightblue;
+
+}
+article{
+    margin: 5px;
+    padding: 10px;
+    color: rebeccapurple;
+
+}
+nav ul il {
+    display:  inline;
+    margin: 5px;
+}
