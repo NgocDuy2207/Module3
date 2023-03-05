@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web xem hoạt hình trực tuyến</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+       PHIM HOAT HINH
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="#">Phim Hoat Hinh</a></li>
+            <li><a href="#">Phim Hoat Hinh Yeu Thich</a></li>
+            <li><a href="#">Nhan Vat Hoat Hinh</a></li>
+            <li><a href="#">Gop Y</a></li>
+            <li>
+                <form id="from"><input type="text" name="search" placeholder="Tim Kiem..."><input type="submit" value="Tim Kiem">
+                </form></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div id="list">
+            <!-- danh sách phim trình chiếu -->
+            <div>
+                <img src="quanglinh.jmg.jpg">
+                <div><strong>Film Name 1</strong> - <small>12345 views</small></div>
+                <div>Kênh QuangLinhVlog</div>
+            </div>
+            <div>
+                <img src="bantia.jmg.jpg">
+                <div><strong>Film Name 2</strong> - <small>33449 views</small></div>
+                <div>Kênh Review Film</div>
+            </div>
+            <div>
+                <img src="doremon1.jmg.jpg">
+                <div><strong>Film Name 3</strong> - <small>111111 views</small></div>
+                <div>Kênh Doremon</div>
+
+            </div>
+            <div>
+                <img src="doremon2.jmg.jpg">
+                <div><strong>Film Name 4</strong> - <small>23282 views</small></div>
+                <div>Tuyển Tập Doremon</div>
+            </div>
+        </div>
+        <div id="video">
+            <div class="show">
+                <iframe width="900" height="450" src="https://www.youtube.com/embed/g3hji_x5LNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div><strong>Film Name 1</strong> - <small>12345 views</small></div>
+                <div> Cuộc sống châu Phi</div>
+                <p style="text-align: center"> Kênh QuangLinhVlog</p>
+
+            </div>
+            <div class="hide"><iframe width="900" height="450" src="https://www.youtube.com/embed/XLoRKcf92T8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div><strong>Film Name 2</strong> - <small>33449 views</small></div>
+                <div>Tay Súng bắng tỉa</div>
+                <div>Sát Thử IQ 200</div>
+                <p style="text-align: center"> Kênh Review Film</p>
+            </div>
+            <div class="hide"><iframe width="900" height="450" src="https://www.youtube.com/embed/Rg_Z_4Ds1E4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div><strong>Film Name 3</strong> - <small>111111 views</small></div>
+                <div>Doremon</div>
+                <div>Tập 500: Quốc Hội Di Động</div>
+                <p style="text-align: center"> Kênh Doremon</p>
+                </div>
+            <div class="hide"><iframe width="900" height="450" src="https://www.youtube.com/embed/Yzzsf3hdMHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div><strong>Film Name 4</strong> - <small>23282 views</small></div>
+                <div>Tuyển Tập Doremon</div>
+                <div>Phần 4: Tuyển tập Công Ty Mèo</div>
+                <p style="text-align: center"> Kênh Doremon</p>
+            </div>
+            <div class="hide">
+                Not found
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer">
+        © 2023  All rights reserved.
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
