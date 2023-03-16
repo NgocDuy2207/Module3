@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class ProductRepositoryImpl implements ProductRepository{
 
-    private static Map<String, Product> productMap;
+    public static Map<String, Product> productMap;
 
 
     static {

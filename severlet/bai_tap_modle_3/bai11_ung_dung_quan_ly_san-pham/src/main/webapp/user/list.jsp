@@ -43,9 +43,10 @@
         </tr>
         </c:forEach>
     </table>
+    <a href="/list.jsp?action=search">Search Product</a>
 
-    <h1>Product can search</h1>
-    <p>Search : <input type="text" name="search"></p>
+
+
 
 
 
