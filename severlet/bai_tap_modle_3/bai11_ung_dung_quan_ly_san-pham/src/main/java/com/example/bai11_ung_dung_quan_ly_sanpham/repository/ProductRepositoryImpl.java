@@ -47,4 +47,9 @@ public class ProductRepositoryImpl implements ProductRepository{
     public Product findById(String id) {
         return productMap.get(id);
     }
+
+    @Override
+    public Product findByName(String name) {
+        return productMap.get(name);
+    }
 }

@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ProductServlet", value = "/product")
+@WebServlet(name = "ProductServlet", value = "/list.jsp")
 public class ProductServlet extends HttpServlet {
     private ProductService productService = new ProductServiceImpl();
     @Override
@@ -26,17 +26,34 @@ public class ProductServlet extends HttpServlet {
                 case  "delete":
                     showDelete(request, response);
                     break;
+                case "update":
+                    showUpdate(request, response);
+                case "search":
+                    showSearch(request, response);
                 default:
+
                     showError(request, response);
             }
 
 
     }
 
+    private void showSearch(HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    private void showUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/user/update.jsp").forward(request, response);
+
+    }
+
     private void showError(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void showDelete(HttpServletRequest request, HttpServletResponse response) {
+    private void showDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        productService.delete(id);
+        response.sendRedirect("list.jsp");
+
     }
 
     private void showListProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,7 +62,6 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showCreateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       // request.setAttribute("products", productService.findAll());
         request.getRequestDispatcher("/user/create.jsp").forward(request, response);
     }
 
@@ -72,8 +88,15 @@ public class ProductServlet extends HttpServlet {
     private void doDetail(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void doUpdate(HttpServletRequest request, HttpServletResponse response) {
-
+    private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String updateId = request.getParameter("updateId");
+        String updateNameProduct = request.getParameter("updateNameProduct");
+        float updatePriceProduct = Integer.parseInt(request.getParameter("updatePriceProduct"));
+        String updateDescribeOfProduct = request.getParameter("updateDescribeOfProduct");
+        String updateProducerOfProduct = request.getParameter("updateProducerOfProduct");
+        Product product = new Product(updateId, updateNameProduct, updatePriceProduct, updateDescribeOfProduct, updateProducerOfProduct);
+        productService.create(product);
+        response.sendRedirect("/list.jsp?action=list");
 
     }
 
@@ -85,7 +108,7 @@ public class ProductServlet extends HttpServlet {
         String producerOfProduct = request.getParameter("producerOfProduct");
         Product product = new Product(id, nameProduct, priceProduct, describeOfProduct, producerOfProduct);
         productService.create(product);
-       response.sendRedirect("/product?action=list");
+        response.sendRedirect("/list.jsp?action=list");
 
     }
 }

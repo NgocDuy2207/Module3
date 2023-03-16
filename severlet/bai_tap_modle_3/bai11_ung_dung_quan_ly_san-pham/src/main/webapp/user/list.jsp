@@ -19,7 +19,7 @@
 </head>
 <body>
     <h1>List Product</h1>
-    <a href="/product?action=create">Create new Product</a>
+    <a href="/list.jsp?action=create">Create new Product</a>
     <table>
         <tr>
             <th>ID</th>
@@ -38,13 +38,16 @@
             <th>${s.priceProduct}</th>
             <th>${s.describeOfProduct}</th>
             <th>${s.producerOfProduct}</th>
-            <th><a href="/product?action=delete&id=${s.id}">Delete</a></th>
-            <th><a href="/product?action=update&id=${s.id}">update</a></th>
+            <th><a href="/list.jsp?action=delete&id=${s.id}">Delete</a></th>
+            <th><a href="/list.jsp?action=update&id=${s.id}">update</a></th>
         </tr>
-
         </c:forEach>
-
     </table>
+
+    <h1>Product can search</h1>
+    <p>Search : <input type="text" name="search"></p>
+
+
 
 
 
