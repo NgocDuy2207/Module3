@@ -12,7 +12,7 @@
 </head>
 <body>
     <H1>create product</H1>
-    <form action="/list.jsp" method="post">
+    <form action="/products" method="post">
         <table>
             <tr>
                 <th>create ID</th>
