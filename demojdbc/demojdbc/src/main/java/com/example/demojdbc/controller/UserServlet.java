@@ -20,8 +20,7 @@ public class UserServlet extends HttpServlet {
         userDAO = new UserDAO();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -34,10 +33,21 @@ public class UserServlet extends HttpServlet {
                 case "edit":
                     updateUser(request, response);
                     break;
+                case "search":
+                    searchUser(request, response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void searchUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+            String name = request.getParameter("searchName");
+           User listSearchName = userDAO.findByName(name);
+            request.setAttribute("listSearchName", listSearchName);
+        request.getRequestDispatcher("/user/list.jsp").forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -69,13 +79,15 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+
+
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userDAO.selectAllUsers();
         request.setAttribute("listUser", listUser);
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("/user/list.jsp");
 //        dispatcher.forward(request, response);
-        request.getRequestDispatcher("/user/list.jsp").forward(request, response);
+        request.getRequestDispatcher("user/list.jsp").forward(request, response);
 
     }
 
