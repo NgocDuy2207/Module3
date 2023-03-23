@@ -1,0 +1,34 @@
+.logo{
+    margin-top: 10px;
+    background-color: aliceblue;
+    color: black;
+}
+.logo-img{
+    width: 40px;
+    height: 20px;
+}
+#h4 {
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 0px;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-auto-columns: 25% 75%;
+    border: 1px solid black;
+    display: flex;
+    height: 400px;
+}
+
+.left {
+    width: 25%;
+    background-color: #f2f2f2;
+    margin-right: 10px; /* ngăn cách 10px với block con bên phải */
+}
+
+.right {
+    width: 75%;
+    background-color: #e6e6e6;
+}

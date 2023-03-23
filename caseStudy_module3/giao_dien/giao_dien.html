@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giao Diện</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .logo{
+            margin-top: 10px;
+            background-color: aliceblue;
+            color: black;
+        }
+        .logo-img{
+            width: 40px;
+            height: 20px;
+        }
+        #h4 {
+            text-align: right;
+            margin-right: 10px;
+            margin-top: 0px;
+
+        }
+
+        .wrapper {
+            display: grid;
+            grid-auto-columns: 25% 75%;
+            border: 1px solid black;
+            display: flex;
+            height: 400px;
+        }
+
+        .left {
+            width: 25%;
+            background-color: #f2f2f2;
+            margin-right: 10px; /* ngăn cách 10px với block con bên phải */
+        }
+
+        .right {
+            width: 75%;
+            background-color: #e6e6e6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img  class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png">
+        <p>LOGO</p>
+        <P id="h4">Nguyen Ngoc Duy</P>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Customer</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contract</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div class="left">
+            <h3>Item One</h3>
+            <h3>Item Tow</h3>
+            <h3>Item Three</h3>
+
+        </div>
+        <div class="right">
+            <h4>Body</h4>
+        </div>
+    </div>
+
+</body>
+</html>
